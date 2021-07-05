@@ -34,7 +34,6 @@ public final class ThirdInfoEntity {
 
     private QQInfoEntity qqInfo;
     private WXInfoEntity wxInfo;
-    private WBInfoEntity wbInfo;
 
     private ThirdInfoEntity(String unionId, String openId, String nickname, String sex, String avatar) {
         this.unionId = unionId;
@@ -55,13 +54,6 @@ public final class ThirdInfoEntity {
         ThirdInfoEntity thirdInfoEntity = new ThirdInfoEntity(unionId, openId, nickname, sex, avatar);
         thirdInfoEntity.setPlatform(PLATFORM_WX);
         thirdInfoEntity.setWxInfo(wxInfo);
-        return thirdInfoEntity;
-    }
-
-    public static ThirdInfoEntity createWbThirdInfo(String unionId, String openId, String nickname, String sex, String avatar, WBInfoEntity wbInfo) {
-        ThirdInfoEntity thirdInfoEntity = new ThirdInfoEntity(unionId, openId, nickname, sex, avatar);
-        thirdInfoEntity.setPlatform(PLATFORM_WB);
-        thirdInfoEntity.setWbInfo(wbInfo);
         return thirdInfoEntity;
     }
 
@@ -129,14 +121,6 @@ public final class ThirdInfoEntity {
         this.wxInfo = wxInfo;
     }
 
-    public WBInfoEntity getWbInfo() {
-        return wbInfo;
-    }
-
-    public void setWbInfo(WBInfoEntity wbInfo) {
-        this.wbInfo = wbInfo;
-    }
-
     @Override
     public String toString() {
         return "ThirdInfoEntity{" +
@@ -148,7 +132,6 @@ public final class ThirdInfoEntity {
                 ", platform='" + platform + '\'' +
                 ", qqInfo=" + qqInfo +
                 ", wxInfo=" + wxInfo +
-                ", wbInfo=" + wbInfo +
                 '}';
     }
 }

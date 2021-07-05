@@ -26,7 +26,6 @@ public final class SocialHelper {
     private Builder builder;
     private QQHelper qqHelper;
     private WXHelper wxHelper;
-    private WBHelper wbHelper;
 
     private SocialHelper(Builder builder) {
         this.builder = builder;
@@ -50,13 +49,6 @@ public final class SocialHelper {
         wxHelper.login(callback);
     }
 
-    public void loginWB(Activity activity, SocialLoginCallback callback) {
-        clear();
-        wbHelper = new WBHelper(activity, builder.getWbAppId(), builder.getWbRedirectUrl());
-        wbHelper.setNeedLoginResult(builder.isNeedLoinResult());
-        wbHelper.login(callback);
-    }
-
     public void shareQQ(Activity activity, ShareEntity shareInfo, SocialShareCallback callback) {
         clear();
         qqHelper = new QQHelper(activity, builder.getQqAppId());
@@ -69,21 +61,12 @@ public final class SocialHelper {
         wxHelper.share(callback, shareInfo);
     }
 
-    public void shareWB(Activity activity, ShareEntity shareInfo, SocialShareCallback callback) {
-        clear();
-        wbHelper = new WBHelper(activity, builder.getWbAppId(), builder.getWbRedirectUrl());
-        wbHelper.share(callback, shareInfo);
-    }
-
     /**
      * qq登录和分享以及微博登录都需要在其当前的activity的onActivityResult中调用该方法
      */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (qqHelper != null) {
             qqHelper.onActivityResult(requestCode, resultCode, data);
-        }
-        if (wbHelper != null) {
-            wbHelper.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -120,10 +103,6 @@ public final class SocialHelper {
         if (qqHelper != null) {
             qqHelper.onDestroy();
             qqHelper = null;
-        }
-        if (wbHelper != null) {
-            wbHelper.onDestroy();
-            wbHelper = null;
         }
     }
 

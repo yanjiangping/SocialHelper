@@ -67,16 +67,13 @@ public class TestLoginShareActivity extends AppCompatActivity implements View.On
                 socialHelper.loginWX(this, this);
                 break;
             case R.id.img_wb:
-                socialHelper.loginWB(this, this);
+                //socialHelper.loginWB(this, this);
                 break;
             case R.id.img_qq_share:
                 socialHelper.shareQQ(this, createQQShareEntity(), this);
                 break;
             case R.id.img_wx_share:
                 socialHelper.shareWX(this, createWXShareEntity(), this);
-                break;
-            case R.id.img_wb_share:
-                socialHelper.shareWB(this, createWBShareEntity(), this);
                 break;
         }
     }
