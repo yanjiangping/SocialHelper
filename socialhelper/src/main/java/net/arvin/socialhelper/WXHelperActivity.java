@@ -2,7 +2,7 @@ package net.arvin.socialhelper;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
